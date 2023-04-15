@@ -6,8 +6,26 @@ class Category extends Model {}
 
 Category.init(
   {
-    // define columns
+  //adding columns to the category table,
+  //Specifying the requirements and types for each column.
+
+  //a column for the category_id
+    id: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+      primaryKey: true,
+      autoIncrement: true,
+    },
+    //a column for the category_name, type of string,
+    //and cannot be null.
+    category_name: {
+      type: DataTypes.STRING,
+      allowNull: false,
+    },
   },
+  
+  //necessary to include the Category model, including 
+  //sequelize as a dependency.
   {
     sequelize,
     timestamps: false,

@@ -1,5 +1,5 @@
 require('dotenv').config();
-
+//including const for bcrypt
 const Sequelize = require('sequelize');
 
 const sequelize = process.env.JAWSDB_URL
