@@ -125,7 +125,7 @@ and running our port. We also sync sequelize models to the database, then turn o
 https://github.com/shababrc/E-Commerce-Back-End-ORM- 
 
 ## Link to Walkthrough Video
-
+https://drive.google.com/file/d/13cMQw2syZL79iK3LI280N3e-YIFWosb2/view?usp=sharing 
 
 ## Credits to the rest of the bootcamp class for help
 Credits to the rest of the bootcamp class for help/advice on this assignment. Credit to Bryan and Shawn from the teaching staff. 

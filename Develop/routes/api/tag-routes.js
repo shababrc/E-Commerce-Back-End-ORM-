@@ -8,12 +8,13 @@ router.get('/', async (req, res) => {
   // be sure to include its associated Product data
   try {
     const tagData = await Tag.
-    findAll({
-        include: [{model: Product}]
-    });
+      findAll({
+        include: [{ model: Product }]
+      });
     res.status(200).json(tagData);
   } catch (err) {
     res.status(400).json(err);
+    console.log(err);
   }
 });
 
@@ -22,12 +23,12 @@ router.get('/:id', async (req, res) => {
   // be sure to include its associated Product data
   try {
     const tagData = await Tag.
-    findByPk(req.params.id, {
-        include: [{model: Product}]
-    });
+      findByPk(req.params.id, {
+        include: [{ model: Product }]
+      });
     res.status(200).json(tagData);
   } catch (err) {
-    res.status(404).json({message: 'No tag found with that id!'});
+    res.status(404).json({ message: 'No tag found with that id!' });
   }
 });
 
@@ -43,21 +44,16 @@ router.post('/', async (req, res) => {
 
 router.put('/:id', async (req, res) => {
   // update a tag's name by its `id` value
-  const updatedTag = await Tag.update(
-    {
-      tag_name: req.body.tag_name,
+  const updatedTag = await Tag.update(req.body, {
+    where: {
+      id: req.params.id,
     },
-    {
-       where: {
-       id: req.body.id,
-     },
-    }
-)
-  .then((updatedTag) => {
-    // Sends the updated book as a json response
-    res.json(updatedTag);
-  })
-  .catch((err) => res.json(err));
+  }
+  ).then((updatedTag) => res.json(updatedTag))
+  .catch((err) => {
+      console.log(err);
+      res.status(400).json(err);
+    });
 });
 
 
